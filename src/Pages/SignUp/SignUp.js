@@ -8,6 +8,7 @@ const SignUp = () => {
     const handleSignUP = event =>{
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const imgurl = form.imageurl.value;
@@ -16,9 +17,21 @@ const SignUp = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+            handleUpdateUserProfile(name, imgurl);
         })
         .catch(error => console.error(error));
 
+    };
+
+    const handleUpdateUserProfile = (name, imgurl) =>{
+        const profile = {
+            displayName: name,
+            photoURL: imgurl,
+        };
+
+        handleUpdateUserProfile(profile)
+          .then(() => {})
+          .catch((error) => console.error(error));
     }
     return (
         <div className="hero min-h-screen bg-base-200 my-10 w-3/4 mx-auto rounded-2xl">
