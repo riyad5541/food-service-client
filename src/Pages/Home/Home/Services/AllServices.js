@@ -1,18 +1,16 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllServices = () => {
     const services = useLoaderData();
-    const {img} = services;
     return (
         <div>
-            <img src={img} alt="" />
             <h2 className="mt-10 text-3xl font-bold text-center">
                 All Services Are Here !!
             </h2>
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-4/5 mx-auto my-10">
                 {services.map((service) => {
-                    console.log(service)
+                    // console.log(service)
                     return (
                         <div className="card card-compact w-64 bg-base-100 shadow-xl">
                             <figure>
@@ -26,7 +24,7 @@ const AllServices = () => {
                                     <p className="text-red-700 font-medium">
                                         Price : $ {service.price}
                                     </p>
-                                    <button className="btn btn-error">Details</button>
+                                    <Link to={`/details/${service._id}`}><button className="btn btn-error">Details</button></Link>
                                 </div>
                             </div>
                         </div>
