@@ -3,6 +3,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const AllServices = () => {
     const services = useLoaderData();
+
+    
     return (
         <div>
             <h2 className="mt-10 text-3xl font-bold text-center">
