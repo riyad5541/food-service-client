@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
 
 const AddService = () => {
@@ -29,9 +30,10 @@ const AddService = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Review Add Sucessfully')
+                    alert('Service Add Sucessfully')
                     form.reset();
                 }
+                
 
             })
             .catch(er => console.error(er));
@@ -43,6 +45,7 @@ const AddService = () => {
 
     return (
         <div>
+            {data.title}
             <form onSubmit={handleAddService}>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mb-12'>
                     <input name='title' type="text" placeholder="Title" className="input input-bordered w-full" required />
