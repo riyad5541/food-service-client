@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const DetailsPage = () => {
     const allDetails = useLoaderData();
-    const {title, img, price, description} = allDetails
+    const {title, img, price, description,_id} = allDetails
 
     const handleAddReview = event =>{
         event.preventDefault();
@@ -13,6 +13,7 @@ const DetailsPage = () => {
         const review = form.review.value;
 
         const order ={
+            service:_id,
             name,
             ImageURL,
             review
